@@ -1,9 +1,9 @@
 [world]
-name = "Full-Starter-React"
-seed = "full_starter_react1"
+name = "Overgoal"
+seed = "overgoal1"
 
 [namespace]
-default = "full_starter_react"
+default = "overgoal"
 
 [env]
 rpc_url = "http://localhost:5050/"
@@ -13,6 +13,6 @@ private_key = "0xc5b2fcab997346f3ea1c00b002ecf6f382c5f9c9659a3894eb783c5320f912"
 # world_address = "0x06171ed98331e849d6084bf2b3e3186a7ddf35574dd68cab4691053ee8ab69d7"
 
 [writers]
-"full_starter_react" = ["full_starter_react-game"]
-"full_starter_react-TrophyCreation" = ["full_starter_react-game"]
-"full_starter_react-TrophyProgression" = ["full_starter_react-game"]
+"overgoal" = ["overgoal-game"]
+"overgoal-TrophyCreation" = ["overgoal-game"]
+"overgoal-TrophyProgression" = ["overgoal-game"]

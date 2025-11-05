@@ -26,7 +26,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "full_starter_react"
+name = "overgoal"
 version = "0.1.0"
 dependencies = [
  "dojo",

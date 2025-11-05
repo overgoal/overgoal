@@ -16,4 +16,4 @@ contracts = []
 raw = true
 
 [sql]
-historical = ["full_starter_react-TrophyProgression"]
+historical = ["overgoal-TrophyProgression"]

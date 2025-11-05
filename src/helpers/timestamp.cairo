@@ -2,7 +2,7 @@
 use core::traits::TryInto;
 
 // Constants imports
-use full_starter_react::constants;
+use overgoal::constants;
 
 #[generate_trait]
 pub impl Timestamp of TimestampTrait {

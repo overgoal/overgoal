@@ -133,7 +133,7 @@ pub impl ZeroablePlayerTrait of Zero<Player> {
 
     #[inline(always)]
     fn is_zero(self: @Player) -> bool {
-       *self.id == 0
+       *self.user_id == 0 && *self.created_at == 0
     }
 
     #[inline(always)]

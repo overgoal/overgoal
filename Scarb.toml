@@ -1,6 +1,6 @@
 [package]
 cairo-version = "2.12.2"
-name = "full_starter_react"
+name = "overgoal"
 version = "0.1.0"
 edition = "2024_07"
 

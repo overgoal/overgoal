@@ -6,11 +6,11 @@ use dojo::world::WorldStorage;
 use dojo::model::ModelStorage;
 
 // Models imports
-use full_starter_react::models::player::{Player, PlayerTrait, PlayerAssert, ZeroablePlayerTrait};
-use full_starter_react::models::user::{User, UserTrait, UserAssert, ZeroableUserTrait};
+use overgoal::models::player::{Player, PlayerTrait, PlayerAssert, ZeroablePlayerTrait};
+use overgoal::models::user::{User, UserTrait, UserAssert, ZeroableUserTrait};
 
 // Helpers import
-use full_starter_react::helpers::timestamp::Timestamp;
+use overgoal::helpers::timestamp::Timestamp;
 
 // Store struct
 #[derive(Copy, Drop)]

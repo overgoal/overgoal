@@ -1375,11 +1375,11 @@
         {
           "type": "impl",
           "name": "GameImpl",
-          "interface_name": "full_starter_react::systems::game::IGame"
+          "interface_name": "overgoal::systems::game::IGame"
         },
         {
           "type": "interface",
-          "name": "full_starter_react::systems::game::IGame",
+          "name": "overgoal::systems::game::IGame",
           "items": [
             {
               "type": "function",
@@ -1509,7 +1509,7 @@
         },
         {
           "type": "event",
-          "name": "full_starter_react::systems::game::game::Event",
+          "name": "overgoal::systems::game::game::Event",
           "kind": "enum",
           "variants": [
             {
@@ -1531,7 +1531,7 @@
         }
       ],
       "init_calldata": [],
-      "tag": "full_starter_react-game",
+      "tag": "overgoal-game",
       "selector": "0x4c3a60c69390276b1cdfe902f6305743f3668c5ab9e68a96105dea78d8ccd61",
       "systems": [
         "dojo_init",
@@ -1548,7 +1548,7 @@
     {
       "members": [],
       "class_hash": "0x3e7c43dd72bf94383e02e0f02b9a9d760db99bf8568acfba417afd146c9646e",
-      "tag": "full_starter_react-Player",
+      "tag": "overgoal-Player",
       "selector": "0x13986cc36a0f8437378d1efa3068103f37b22361ff3cc31be99d50ddf2e4187"
     }
   ],
@@ -1556,13 +1556,13 @@
     {
       "members": [],
       "class_hash": "0x19a5c06b3a8417ff3f9883be3acb0e33c835795bd81fb87a5a47e6ed7d2d3af",
-      "tag": "full_starter_react-TrophyCreation",
+      "tag": "overgoal-TrophyCreation",
       "selector": "0x3ee5e843803cc1ec151088d980d09c665c10f9282fea6204ebec09706791977"
     },
     {
       "members": [],
       "class_hash": "0x1922d2cd8b63eccf66321673234a52126cd9f0ab1bf6298c5abee6ee80c8990",
-      "tag": "full_starter_react-TrophyProgression",
+      "tag": "overgoal-TrophyProgression",
       "selector": "0x6f15029fdaa4c14b9f4690bad922d22e5646466e5fe4c688e633d67028b68d8"
     }
   ],

@@ -30,7 +30,7 @@ export interface ModelDef {
     unpacked_size: Option<number>;
 }
 
-// Type definition for `full_starter_react::models::user::UserValue` struct
+// Type definition for `overgoal::models::user::UserValue` struct
 export interface UserValue {
     username: string;
     created_at: bigint;
@@ -50,7 +50,7 @@ export interface Enum {
     children: [string, Ty][];
 }
 
-// Type definition for `full_starter_react::models::user::User` struct
+// Type definition for `overgoal::models::user::User` struct
 export interface User {
     owner: string;
     username: string;
@@ -77,7 +77,7 @@ type Option<A> = { type: 'Some'; data: A; } | { type: 'None'; }
 // Type definition for `dojo::meta::layout::Layout` enum
 type Layout = { type: 'Fixed'; data: number[]; } | { type: 'Struct'; data: FieldLayout[]; } | { type: 'Tuple'; data: Layout[]; } | { type: 'Array'; data: Layout[]; } | { type: 'ByteArray'; } | { type: 'Enum'; data: FieldLayout[]; }
 
-// Type definition for `full_starter_react::models::player::PlayerValue` struct
+// Type definition for `overgoal::models::player::PlayerValue` struct
 export interface PlayerValue {
     user_id: string;
     created_at: bigint;
@@ -91,7 +91,7 @@ export interface PlayerValue {
     universe_currency: bigint;
 }
 
-// Type definition for `full_starter_react::models::player::Player` struct
+// Type definition for `overgoal::models::player::Player` struct
 export interface Player {
     id: string;
     user_id: string;

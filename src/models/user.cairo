@@ -5,7 +5,7 @@ use starknet::ContractAddress;
 use core::num::traits::zero::Zero;
 
 // Constants imports
-use full_starter_react::constants;
+use overgoal::constants;
 
 // User model representing a player account in the game
 #[derive(Copy, Drop, Serde, IntrospectPacked, Debug)]
@@ -101,8 +101,8 @@ pub impl UserHelpers of UserHelpersTrait {
 // Tests
 #[cfg(test)]
 mod tests {
-    use super::{User, ZeroableUserTrait, UserImpl, UserTrait, UserAssert};
-    use full_starter_react::constants;
+    use super::{User, ZeroableUserTrait, UserImpl, UserTrait, UserAssert, UserHelpers, UserHelpersTrait};
+    use overgoal::constants;
     use starknet::{ContractAddress, contract_address_const};
 
     #[test]
@@ -190,8 +190,8 @@ mod tests {
         let user2 = UserTrait::new(user_address_1, 'maria', 1736559100);
         let user3 = UserTrait::new(user_address_2, 'john', 1736559200);
 
-        assert(user1.is_same_user(@user2), 'Same owner should be same user');
-        assert(!user1.is_same_user(@user3), 'Different owner should be different user');
+        assert(UserHelpers::is_same_user(@user1, @user2), 'Same owner same user');
+        assert(!UserHelpers::is_same_user(@user1, @user3), 'Diff owner diff user');
         
         assert(user2.created_after(1736559000), 'User2 created after user1');
         assert(user1.created_before(1736559100), 'User1 created before user2');

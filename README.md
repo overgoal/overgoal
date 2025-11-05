@@ -1,6 +1,6 @@
-# Dojo Game Starter - Backend Documentation
+# Overgoal - Backend Documentation
 
-This repository is a complete **starter** for developing games on **Starknet** using **Cairo/Dojo** as backend. It includes achievements integration, player system, and is production ready in Sepolia.
+This is the backend for **Overgoal**, a football management game built on **Starknet** using **Cairo/Dojo**. It includes player management, game systems, and is production ready for Sepolia.
 
 ## 🏗️ Backend Project Structure
 
@@ -156,7 +156,7 @@ slot auth login
 ### 2️⃣ Torii Instance Deploy
 ```bash
 slot deployments create <instance_name> torii \
-  --sql.historical "full_starter_react-TrophyProgression" \
+  --sql.historical "overgoal-TrophyProgression" \
   --world <world_address> \
   --rpc https://api.cartridge.gg/x/starknet/sepolia
 ```

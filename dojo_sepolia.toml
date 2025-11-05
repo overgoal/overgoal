@@ -1,10 +1,10 @@
 [world]
-name = "Full-Starter-React"
-description = "Full Starter React is a template project to be used for other devs to quickly learn how to use the controller, achievements, backend and its integration. Built using Dojo Engine and Cartridge Controller on Starknet."
-seed = "seed123"
+name = "Overgoal"
+description = "Overgoal is a football management game built using Dojo Engine and Cartridge Controller on Starknet."
+seed = "overgoal123"
 
 [namespace]
-default = "full_starter_react"
+default = "overgoal"
 
 [env]
 rpc_url = "https://api.cartridge.gg/x/starknet/sepolia"
@@ -12,6 +12,6 @@ rpc_url = "https://api.cartridge.gg/x/starknet/sepolia"
 account_address = "0x45ac786967795b917490e6bb72a7ae5886e20a7904b6a188d3240ead8eeb825"
 
 [writers]
-"full_starter_react" = ["full_starter_react-game"]
-"full_starter_react-TrophyCreation" = ["full_starter_react-game"]
-"full_starter_react-TrophyProgression" = ["full_starter_react-game"]
+"overgoal" = ["overgoal-game"]
+"overgoal-TrophyCreation" = ["overgoal-game"]
+"overgoal-TrophyProgression" = ["overgoal-game"]

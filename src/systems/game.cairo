@@ -17,13 +17,13 @@ pub mod game {
 
 
     // Store import
-    use full_starter_react::store::{StoreTrait};
+    use overgoal::store::{StoreTrait};
 
 
 
     // Models import
-    use full_starter_react::models::player::{PlayerAssert};
-    use full_starter_react::models::user::{UserAssert};
+    use overgoal::models::player::{PlayerAssert};
+    use overgoal::models::user::{UserAssert};
 
 
 
@@ -53,7 +53,7 @@ pub mod game {
         
         // Method to create a new player
         fn create_player(ref self: ContractState, player_id: felt252) {
-            let mut world = self.world(@"full_starter_react");
+            let mut world = self.world(@"overgoal");
             let store = StoreTrait::new(world);
 
             // Get caller as user_id (assuming caller has a User account)
@@ -66,7 +66,7 @@ pub mod game {
 
         // Method to update player attributes
         fn update_attributes(ref self: ContractState, player_id: felt252, fame: u16, charisma: u16, stamina: u16, intelligence: u16, leadership: u16) {
-            let mut world = self.world(@"full_starter_react");
+            let mut world = self.world(@"overgoal");
             let store = StoreTrait::new(world);
 
             // Update player attributes
@@ -75,7 +75,7 @@ pub mod game {
 
         // Method to add currency to player
         fn add_currency(ref self: ContractState, player_id: felt252, amount: u128) {
-            let mut world = self.world(@"full_starter_react");
+            let mut world = self.world(@"overgoal");
             let store = StoreTrait::new(world);
            
             // Add currency
@@ -84,7 +84,7 @@ pub mod game {
 
         // Method to spend player currency
         fn spend_currency(ref self: ContractState, player_id: felt252, amount: u128) {
-            let mut world = self.world(@"full_starter_react");
+            let mut world = self.world(@"overgoal");
             let store = StoreTrait::new(world);
 
             // Spend currency
@@ -93,7 +93,7 @@ pub mod game {
 
         // Method to record player login
         fn record_login(ref self: ContractState, player_id: felt252) {
-            let mut world = self.world(@"full_starter_react");
+            let mut world = self.world(@"overgoal");
             let store = StoreTrait::new(world);
 
             // Record login

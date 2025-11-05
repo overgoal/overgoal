@@ -2,7 +2,7 @@
   "world": {
     "class_hash": "0x57994b6a75fad550ca18b41ee82e2110e158c59028c4478109a67965a0e5b1e",
     "address": "0x1e7962b214762b83272abb56d05d0823a3bf85caa58e5cbe8e55ea3023dff2",
-    "seed": "full_starter_react1",
+    "seed": "overgoal1",
     "name": "Full-Starter-React",
     "entrypoints": [
       "uuid",
@@ -1542,11 +1542,11 @@
         {
           "type": "impl",
           "name": "GameImpl",
-          "interface_name": "full_starter_react::systems::game::IGame"
+          "interface_name": "overgoal::systems::game::IGame"
         },
         {
           "type": "interface",
-          "name": "full_starter_react::systems::game::IGame",
+          "name": "overgoal::systems::game::IGame",
           "items": [
             {
               "type": "function",
@@ -1730,7 +1730,7 @@
         },
         {
           "type": "event",
-          "name": "full_starter_react::systems::game::game::Event",
+          "name": "overgoal::systems::game::game::Event",
           "kind": "enum",
           "variants": [
             {
@@ -1747,7 +1747,7 @@
         }
       ],
       "init_calldata": [],
-      "tag": "full_starter_react-game",
+      "tag": "overgoal-game",
       "selector": "0x4c3a60c69390276b1cdfe902f6305743f3668c5ab9e68a96105dea78d8ccd61",
       "systems": [
         "dojo_init",
@@ -1765,13 +1765,13 @@
     {
       "members": [],
       "class_hash": "0x166599bf8a491ac57915b7fd817fabf0e7c2180f6973221308efb2e45bb719e",
-      "tag": "full_starter_react-Player",
+      "tag": "overgoal-Player",
       "selector": "0x13986cc36a0f8437378d1efa3068103f37b22361ff3cc31be99d50ddf2e4187"
     },
     {
       "members": [],
       "class_hash": "0x602abf84722a433fbff04c02e84a9a59151a7b7815e8e4352456feabff14b1",
-      "tag": "full_starter_react-User",
+      "tag": "overgoal-User",
       "selector": "0x13f7b27c7499b3addaec78b7a273067addca85507a211cca2a06c488f442849"
     }
   ],
