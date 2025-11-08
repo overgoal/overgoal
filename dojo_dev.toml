@@ -13,6 +13,14 @@ private_key = "0xc5b2fcab997346f3ea1c00b002ecf6f382c5f9c9659a3894eb783c5320f912"
 # world_address = "0x06171ed98331e849d6084bf2b3e3186a7ddf35574dd68cab4691053ee8ab69d7"
 
 [writers]
-"overgoal" = ["overgoal-game"]
-"overgoal-TrophyCreation" = ["overgoal-game"]
-"overgoal-TrophyProgression" = ["overgoal-game"]
+"overgoal-OvergoalPlayer" = ["overgoal-overgoal_game", "overgoal-admin"]
+"overgoal-Club" = ["overgoal-admin"]
+"overgoal-Season" = ["overgoal-admin"]
+"overgoal-SeasonClub" = ["overgoal-admin"]
+"overgoal-SeasonPlayer" = ["overgoal-admin"]
+
+[init_call_args]
+# Initialize overgoal-overgoal_game with the universe game contract address
+"overgoal-overgoal_game" = ["0x187f723fc8b8d48c372bfac2f9da9e5cffa34bdae58d99dc87ae9284886b173"]
+# Initialize overgoal-admin with the universe game contract address
+"overgoal-admin" = ["0x187f723fc8b8d48c372bfac2f9da9e5cffa34bdae58d99dc87ae9284886b173"]

@@ -1,9 +1,9 @@
 {
   "world": {
     "class_hash": "0x57994b6a75fad550ca18b41ee82e2110e158c59028c4478109a67965a0e5b1e",
-    "address": "0x1e7962b214762b83272abb56d05d0823a3bf85caa58e5cbe8e55ea3023dff2",
+    "address": "0x15e9d1a5f1964be845e705b4bb2c1d6062aa4bd62e1e34e25e320b2a0c1f045",
     "seed": "overgoal1",
-    "name": "Full-Starter-React",
+    "name": "Overgoal",
     "entrypoints": [
       "uuid",
       "set_metadata",
@@ -1479,12 +1479,12 @@
   },
   "contracts": [
     {
-      "address": "0x282830ee5f4e56edf9a0df34430eb05ab6f0f2aa763d728482f83c82adf02ab",
-      "class_hash": "0x4d069db479544a07857932d348a1c3a29f77f1448986ae770ac99dc02f4a81e",
+      "address": "0x21bc90138d375a74c0ef9a4a54bd7dc48288c2784585cd70b504ca860024aab",
+      "class_hash": "0x7ca4649c816e0dc207e69959b212fc20a3b91448ae9ad9a961c8fb1a748fd3e",
       "abi": [
         {
           "type": "impl",
-          "name": "game__ContractImpl",
+          "name": "admin__ContractImpl",
           "interface_name": "dojo::contract::interface::IContract"
         },
         {
@@ -1535,58 +1535,114 @@
         {
           "type": "function",
           "name": "dojo_init",
-          "inputs": [],
+          "inputs": [
+            {
+              "name": "universe_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ],
           "outputs": [],
           "state_mutability": "external"
         },
         {
           "type": "impl",
-          "name": "GameImpl",
-          "interface_name": "overgoal::systems::game::IGame"
+          "name": "AdminImpl",
+          "interface_name": "overgoal::systems::admin::IAdmin"
+        },
+        {
+          "type": "struct",
+          "name": "core::array::Span::<(core::felt252, core::byte_array::ByteArray)>",
+          "members": [
+            {
+              "name": "snapshot",
+              "type": "@core::array::Array::<(core::felt252, core::byte_array::ByteArray)>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "core::array::Span::<core::felt252>",
+          "members": [
+            {
+              "name": "snapshot",
+              "type": "@core::array::Array::<core::felt252>"
+            }
+          ]
         },
         {
           "type": "interface",
-          "name": "overgoal::systems::game::IGame",
+          "name": "overgoal::systems::admin::IAdmin",
           "items": [
             {
               "type": "function",
-              "name": "create_player",
-              "inputs": [
-                {
-                  "name": "player_id",
-                  "type": "core::felt252"
-                }
-              ],
+              "name": "seed_season_1",
+              "inputs": [],
               "outputs": [],
               "state_mutability": "external"
             },
             {
               "type": "function",
-              "name": "update_attributes",
+              "name": "seed_player",
               "inputs": [
                 {
                   "name": "player_id",
                   "type": "core::felt252"
                 },
                 {
-                  "name": "fame",
+                  "name": "user_id",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "body_type",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "skin_color",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "beard_type",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "hair_type",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "hair_color",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "energy",
                   "type": "core::integer::u16"
                 },
                 {
-                  "name": "charisma",
-                  "type": "core::integer::u16"
-                },
-                {
-                  "name": "stamina",
-                  "type": "core::integer::u16"
-                },
-                {
-                  "name": "intelligence",
+                  "name": "speed",
                   "type": "core::integer::u16"
                 },
                 {
                   "name": "leadership",
                   "type": "core::integer::u16"
+                },
+                {
+                  "name": "pass",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "shoot",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "freekick",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "visor_type",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "visor_color",
+                  "type": "core::integer::u8"
                 }
               ],
               "outputs": [],
@@ -1594,10 +1650,405 @@
             },
             {
               "type": "function",
-              "name": "add_currency",
+              "name": "seed_season_player",
               "inputs": [
                 {
-                  "name": "player_id",
+                  "name": "season_player_id",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "season_id",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "season_club_id",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "overgoal_player_id",
+                  "type": "core::felt252"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "get_season_1_data",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "(core::felt252, core::byte_array::ByteArray, core::integer::u64, core::integer::u64, core::integer::u128, core::array::Span::<(core::felt252, core::byte_array::ByteArray)>, core::array::Span::<core::felt252>)"
+                }
+              ],
+              "state_mutability": "view"
+            }
+          ]
+        },
+        {
+          "type": "impl",
+          "name": "WorldProviderImpl",
+          "interface_name": "dojo::contract::components::world_provider::IWorldProvider"
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::iworld::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "interface",
+          "name": "dojo::contract::components::world_provider::IWorldProvider",
+          "items": [
+            {
+              "type": "function",
+              "name": "world_dispatcher",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "dojo::world::iworld::IWorldDispatcher"
+                }
+              ],
+              "state_mutability": "view"
+            }
+          ]
+        },
+        {
+          "type": "impl",
+          "name": "UpgradeableImpl",
+          "interface_name": "dojo::contract::components::upgradeable::IUpgradeable"
+        },
+        {
+          "type": "interface",
+          "name": "dojo::contract::components::upgradeable::IUpgradeable",
+          "items": [
+            {
+              "type": "function",
+              "name": "upgrade",
+              "inputs": [
+                {
+                  "name": "new_class_hash",
+                  "type": "core::starknet::class_hash::ClassHash"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
+            }
+          ]
+        },
+        {
+          "type": "constructor",
+          "name": "constructor",
+          "inputs": []
+        },
+        {
+          "type": "event",
+          "name": "dojo::contract::components::upgradeable::upgradeable_cpt::Upgraded",
+          "kind": "struct",
+          "members": [
+            {
+              "name": "class_hash",
+              "type": "core::starknet::class_hash::ClassHash",
+              "kind": "data"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "name": "dojo::contract::components::upgradeable::upgradeable_cpt::Event",
+          "kind": "enum",
+          "variants": [
+            {
+              "name": "Upgraded",
+              "type": "dojo::contract::components::upgradeable::upgradeable_cpt::Upgraded",
+              "kind": "nested"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "name": "dojo::contract::components::world_provider::world_provider_cpt::Event",
+          "kind": "enum",
+          "variants": []
+        },
+        {
+          "type": "event",
+          "name": "overgoal::systems::admin::admin::Event",
+          "kind": "enum",
+          "variants": [
+            {
+              "name": "UpgradeableEvent",
+              "type": "dojo::contract::components::upgradeable::upgradeable_cpt::Event",
+              "kind": "nested"
+            },
+            {
+              "name": "WorldProviderEvent",
+              "type": "dojo::contract::components::world_provider::world_provider_cpt::Event",
+              "kind": "nested"
+            }
+          ]
+        }
+      ],
+      "init_calldata": [
+        "0x187f723fc8b8d48c372bfac2f9da9e5cffa34bdae58d99dc87ae9284886b173"
+      ],
+      "tag": "overgoal-admin",
+      "selector": "0x726daf2b4f1ba700b7637842d12ed40066a466ef875387fd1978f95aca135af",
+      "systems": [
+        "dojo_init",
+        "seed_season_1",
+        "seed_player",
+        "seed_season_player",
+        "upgrade"
+      ]
+    },
+    {
+      "address": "0x4595b7b509bbac497595d0a99c08267be7105f51a09e79c38387ea25dbc7a12",
+      "class_hash": "0x167075c6e775f65640b4badf4891b9053da7ec517f23f7bb40b3e9192fc8f20",
+      "abi": [
+        {
+          "type": "impl",
+          "name": "overgoal_game__ContractImpl",
+          "interface_name": "dojo::contract::interface::IContract"
+        },
+        {
+          "type": "interface",
+          "name": "dojo::contract::interface::IContract",
+          "items": []
+        },
+        {
+          "type": "impl",
+          "name": "DojoDeployedContractImpl",
+          "interface_name": "dojo::meta::interface::IDeployedResource"
+        },
+        {
+          "type": "struct",
+          "name": "core::byte_array::ByteArray",
+          "members": [
+            {
+              "name": "data",
+              "type": "core::array::Array::<core::bytes_31::bytes31>"
+            },
+            {
+              "name": "pending_word",
+              "type": "core::felt252"
+            },
+            {
+              "name": "pending_word_len",
+              "type": "core::integer::u32"
+            }
+          ]
+        },
+        {
+          "type": "interface",
+          "name": "dojo::meta::interface::IDeployedResource",
+          "items": [
+            {
+              "type": "function",
+              "name": "dojo_name",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::byte_array::ByteArray"
+                }
+              ],
+              "state_mutability": "view"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "dojo_init",
+          "inputs": [
+            {
+              "name": "universe_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "external"
+        },
+        {
+          "type": "impl",
+          "name": "OvergoalGameImpl",
+          "interface_name": "overgoal::systems::overgoal_game::IOvergoalGame"
+        },
+        {
+          "type": "enum",
+          "name": "core::bool",
+          "variants": [
+            {
+              "name": "False",
+              "type": "()"
+            },
+            {
+              "name": "True",
+              "type": "()"
+            }
+          ]
+        },
+        {
+          "type": "interface",
+          "name": "overgoal::systems::overgoal_game::IOvergoalGame",
+          "items": [
+            {
+              "type": "function",
+              "name": "create_full_player",
+              "inputs": [
+                {
+                  "name": "overgoal_player_id",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "universe_player_id",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "body_type",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "skin_color",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "beard_type",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "hair_type",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "hair_color",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "energy",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "speed",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "leadership",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "pass",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "shoot",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "freekick",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "visor_type",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "visor_color",
+                  "type": "core::integer::u8"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "create_overgoal_player",
+              "inputs": [
+                {
+                  "name": "overgoal_player_id",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "universe_player_id",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "energy",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "speed",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "leadership",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "pass",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "shoot",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "freekick",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "visor_type",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "visor_color",
+                  "type": "core::integer::u8"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "update_overgoal_player_stats",
+              "inputs": [
+                {
+                  "name": "overgoal_player_id",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "speed",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "leadership",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "pass",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "shoot",
+                  "type": "core::integer::u16"
+                },
+                {
+                  "name": "freekick",
+                  "type": "core::integer::u16"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "add_goal_currency",
+              "inputs": [
+                {
+                  "name": "overgoal_player_id",
                   "type": "core::felt252"
                 },
                 {
@@ -1610,10 +2061,10 @@
             },
             {
               "type": "function",
-              "name": "spend_currency",
+              "name": "spend_goal_currency",
               "inputs": [
                 {
-                  "name": "player_id",
+                  "name": "overgoal_player_id",
                   "type": "core::felt252"
                 },
                 {
@@ -1626,11 +2077,15 @@
             },
             {
               "type": "function",
-              "name": "record_login",
+              "name": "set_injury_status",
               "inputs": [
                 {
-                  "name": "player_id",
+                  "name": "overgoal_player_id",
                   "type": "core::felt252"
+                },
+                {
+                  "name": "is_injured",
+                  "type": "core::bool"
                 }
               ],
               "outputs": [],
@@ -1730,7 +2185,7 @@
         },
         {
           "type": "event",
-          "name": "overgoal::systems::game::game::Event",
+          "name": "overgoal::systems::overgoal_game::overgoal_game::Event",
           "kind": "enum",
           "variants": [
             {
@@ -1746,16 +2201,19 @@
           ]
         }
       ],
-      "init_calldata": [],
-      "tag": "overgoal-game",
-      "selector": "0x4c3a60c69390276b1cdfe902f6305743f3668c5ab9e68a96105dea78d8ccd61",
+      "init_calldata": [
+        "0x187f723fc8b8d48c372bfac2f9da9e5cffa34bdae58d99dc87ae9284886b173"
+      ],
+      "tag": "overgoal-overgoal_game",
+      "selector": "0x2ac4c0620fffa3f274f7b90a94f6db70d15f394ab588546942aa50a661cbee3",
       "systems": [
         "dojo_init",
-        "create_player",
-        "update_attributes",
-        "add_currency",
-        "spend_currency",
-        "record_login",
+        "create_full_player",
+        "create_overgoal_player",
+        "update_overgoal_player_stats",
+        "add_goal_currency",
+        "spend_goal_currency",
+        "set_injury_status",
         "upgrade"
       ]
     }
@@ -1764,15 +2222,39 @@
   "models": [
     {
       "members": [],
-      "class_hash": "0x166599bf8a491ac57915b7fd817fabf0e7c2180f6973221308efb2e45bb719e",
-      "tag": "overgoal-Player",
-      "selector": "0x13986cc36a0f8437378d1efa3068103f37b22361ff3cc31be99d50ddf2e4187"
+      "class_hash": "0x2c0e436c5934fd1cd701f4dd18aa791a66b62f733b4f21f4bb6d91befe4e7c6",
+      "tag": "overgoal-Club",
+      "selector": "0x3767c87290d824f505711dbc6e777b7ea803e66aca01995554217c6af221c6f"
     },
     {
       "members": [],
-      "class_hash": "0x602abf84722a433fbff04c02e84a9a59151a7b7815e8e4352456feabff14b1",
+      "class_hash": "0x65653d08030c41498fb182936524306295b4976417d48eb942c350945de9890",
+      "tag": "overgoal-OvergoalPlayer",
+      "selector": "0x3a6b8ec7d88a877607315d2fe4be61c0948c4552b2ea910e6043cd8be1cc08a"
+    },
+    {
+      "members": [],
+      "class_hash": "0x3ce575e0b6d25795cb181f6ef05da9c7069893a60eff0e2642aa3b01a1bb86a",
+      "tag": "overgoal-Season",
+      "selector": "0x7102239990dcc07fc2936d0926b8ff8a419eb72aa1f6f6d93f5abe7a2cd7bf6"
+    },
+    {
+      "members": [],
+      "class_hash": "0x40250128e54128f470f56ca6e04a4438270c08cc0a0bc6e3b6a870f3981da84",
+      "tag": "overgoal-SeasonClub",
+      "selector": "0x470d636ae05566f8d0c5d2421158adfe0c3be69c3bcaa7262b5ba01d344d6e6"
+    },
+    {
+      "members": [],
+      "class_hash": "0x492bc4426529bdf2c52ea7a24c2a86a9a3046890466d3a1c1a9f22a90f47621",
+      "tag": "overgoal-SeasonPlayer",
+      "selector": "0x3c34c05e819a5edbf9c8ded75e7681dd32afeee43f4b02646d62979a9ac4587"
+    },
+    {
+      "members": [],
+      "class_hash": "0x6d94a792bd958a103ca53ba69571da2a7aa96453b8ca8b84cd3d9283ecb8187",
       "tag": "overgoal-User",
-      "selector": "0x13f7b27c7499b3addaec78b7a273067addca85507a211cca2a06c488f442849"
+      "selector": "0xe28270f6077317773c203fb9fac05840752d8f765a8be44428ac1aa7c54e80"
     }
   ],
   "events": [],
