@@ -266,5 +266,34 @@ mod tests {
         assert(player.visor_type == 0, 'No visor');
         assert(player.visor_color == 0, 'No visor color');
     }
+    
+    #[test]
+    #[available_gas(100000000)]
+    #[should_panic]
+    fn test_assign_player_to_club() {
+        let (mut world, overgoal_game_system, _caller) = setup();
+        
+        let overgoal_player_id: felt252 = 0x999;
+        let universe_player_id: felt252 = 0x999;
+        let user_id: felt252 = 0x123;
+        let club_id: felt252 = 1;
+        
+        // First create an overgoal player
+        overgoal_game_system.create_overgoal_player(
+            overgoal_player_id,
+            universe_player_id,
+            100, 80, 70, 85, 90, 75, 1, 2
+        );
+        
+        // This will panic because Universe contract doesn't exist in test environment
+        // In production, this would:
+        // 1. Call Universe to assign user to universe_player
+        // 2. Create a SeasonPlayer linking overgoal_player to club
+        overgoal_game_system.assign_player_to_club(
+            overgoal_player_id,
+            user_id,
+            club_id
+        );
+    }
 }
 

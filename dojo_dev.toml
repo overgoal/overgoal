@@ -17,10 +17,10 @@ private_key = "0xc5b2fcab997346f3ea1c00b002ecf6f382c5f9c9659a3894eb783c5320f912"
 "overgoal-Club" = ["overgoal-admin"]
 "overgoal-Season" = ["overgoal-admin"]
 "overgoal-SeasonClub" = ["overgoal-admin"]
-"overgoal-SeasonPlayer" = ["overgoal-admin"]
+"overgoal-SeasonPlayer" = ["overgoal-overgoal_game", "overgoal-admin"]
 
 [init_call_args]
 # Initialize overgoal-overgoal_game with the universe game contract address
-"overgoal-overgoal_game" = ["0x187f723fc8b8d48c372bfac2f9da9e5cffa34bdae58d99dc87ae9284886b173"]
+"overgoal-overgoal_game" = ["0x6f30435136e0effaabd531196d4cdad746b712df6e1f35b1a2acdce5d6c1863"]
 # Initialize overgoal-admin with the universe game contract address
-"overgoal-admin" = ["0x187f723fc8b8d48c372bfac2f9da9e5cffa34bdae58d99dc87ae9284886b173"]
+"overgoal-admin" = ["0x6f30435136e0effaabd531196d4cdad746b712df6e1f35b1a2acdce5d6c1863"]

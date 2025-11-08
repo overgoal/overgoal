@@ -1794,7 +1794,7 @@
         }
       ],
       "init_calldata": [
-        "0x187f723fc8b8d48c372bfac2f9da9e5cffa34bdae58d99dc87ae9284886b173"
+        "0x6f30435136e0effaabd531196d4cdad746b712df6e1f35b1a2acdce5d6c1863"
       ],
       "tag": "overgoal-admin",
       "selector": "0x726daf2b4f1ba700b7637842d12ed40066a466ef875387fd1978f95aca135af",
@@ -1807,8 +1807,8 @@
       ]
     },
     {
-      "address": "0x4595b7b509bbac497595d0a99c08267be7105f51a09e79c38387ea25dbc7a12",
-      "class_hash": "0x167075c6e775f65640b4badf4891b9053da7ec517f23f7bb40b3e9192fc8f20",
+      "address": "0x2e929a8f30afaa9970216a34b94da7890ae96bbf657d0694031b76781c34eae",
+      "class_hash": "0x30e6b842cbf753c68d447d4cd0b62dbb288695ec783f65da554fd9d809456ae",
       "abi": [
         {
           "type": "impl",
@@ -2090,6 +2090,26 @@
               ],
               "outputs": [],
               "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "assign_player_to_club",
+              "inputs": [
+                {
+                  "name": "overgoal_player_id",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "user_id",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "club_id",
+                  "type": "core::felt252"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
             }
           ]
         },
@@ -2202,7 +2222,7 @@
         }
       ],
       "init_calldata": [
-        "0x187f723fc8b8d48c372bfac2f9da9e5cffa34bdae58d99dc87ae9284886b173"
+        "0x6f30435136e0effaabd531196d4cdad746b712df6e1f35b1a2acdce5d6c1863"
       ],
       "tag": "overgoal-overgoal_game",
       "selector": "0x2ac4c0620fffa3f274f7b90a94f6db70d15f394ab588546942aa50a661cbee3",
@@ -2214,6 +2234,7 @@
         "add_goal_currency",
         "spend_goal_currency",
         "set_injury_status",
+        "assign_player_to_club",
         "upgrade"
       ]
     }

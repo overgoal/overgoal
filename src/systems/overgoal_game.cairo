@@ -57,6 +57,14 @@ pub trait IOvergoalGame<T> {
     
     // Set injury status
     fn set_injury_status(ref self: T, overgoal_player_id: felt252, is_injured: bool);
+    
+    // Assign player to club (updates Universe user and creates SeasonPlayer)
+    fn assign_player_to_club(
+        ref self: T,
+        overgoal_player_id: felt252,
+        user_id: felt252,
+        club_id: felt252
+    );
 }
 
 // Interface for Universe contract (for safe cross-contract calls)
@@ -72,6 +80,7 @@ pub trait IUniverse<T> {
         hair_type: u8,
         hair_color: u8
     );
+    fn assign_user(ref self: T, player_id: felt252, user_id: felt252);
 }
 
 #[dojo::contract]
@@ -251,6 +260,57 @@ pub mod overgoal_game {
             let store = StoreTrait::new(world);
             
             store.set_overgoal_player_injury(overgoal_player_id, is_injured);
+        }
+        
+        #[feature("safe_dispatcher")]
+        fn assign_player_to_club(
+            ref self: ContractState,
+            overgoal_player_id: felt252,
+            user_id: felt252,
+            club_id: felt252
+        ) {
+            let mut world = self.world(@"overgoal");
+            let store = StoreTrait::new(world);
+            
+            // 1. Get the overgoal player to find universe_player_id
+            let overgoal_player = store.read_overgoal_player_from_id(overgoal_player_id);
+            overgoal_player.assert_exists();
+            
+            // 2. Call Universe contract to assign user to the universe player
+            let universe_address = self.universe_contract_address.read();
+            let universe_dispatcher = IUniverseSafeDispatcher { 
+                contract_address: universe_address 
+            };
+            
+            let result = universe_dispatcher.assign_user(
+                overgoal_player.universe_player_id,
+                user_id
+            );
+            
+            // Handle result
+            match result {
+                Result::Ok(_) => {
+                    // 3. Get the season club for this club (assuming season 1)
+                    let season_id: felt252 = 1;
+                    let season_club_id: felt252 = 100 + club_id; // season_club_id = 100 + club_id
+                    
+                    // 4. Create season player
+                    // season_player_id will be unique: 10000 + overgoal_player_id
+                    let season_player_id: felt252 = 10000 + overgoal_player_id;
+                    
+                    store.create_season_player(
+                        season_player_id,
+                        season_id,
+                        season_club_id,
+                        overgoal_player_id,
+                        50, // default team_relationship
+                        50  // default fans_relationship
+                    );
+                },
+                Result::Err(_panic_data) => {
+                    panic!("Failed to assign user in Universe");
+                },
+            }
         }
     }
     
